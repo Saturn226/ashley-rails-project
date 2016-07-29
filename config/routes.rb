@@ -1,5 +1,18 @@
 Rails.application.routes.draw do
+  get 'sessions/index'
+
+  get 'sessions/login'
+
+  get 'sessions/logout'
+
+  get 'sessions/index'
+
+  get 'sessions/login'
+
+  get 'sessions/logout'
+
   resources :pets
+  root 'welcome#index'
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

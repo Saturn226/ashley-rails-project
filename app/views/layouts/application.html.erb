@@ -19,16 +19,12 @@
     <![endif]-->
   </head>
   <body>
-    <p class="notice"><%= notice %></p>
-    <p class="alert"><%= alert %></p>
 
-    <h1>Hello, Twitter Bootstrap</h1>
-    <ul class="hmenu">
-      <%= render 'devise/menu/registration_items' %>
-      <%= render 'devise/menu/login_items' %>
-    </ul>
+   <%= render 'layouts/header' %>
 
-    <%= yield %>
+     
+          <%= yield %>
+
 
   </body>
 </html>
