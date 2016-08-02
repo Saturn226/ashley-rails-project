@@ -1,16 +1,10 @@
 Rails.application.routes.draw do
-  devise_for :users
-  get 'sessions/index'
+  #devise_for :users
 
-  get 'sessions/login'
 
-  get 'sessions/logout'
+  devise_for :users, :path => '', :path_names => {:sign_in => 'login', :sign_out => 'logout'}
 
-  get 'sessions/index'
-
-  get 'sessions/login'
-
-  get 'sessions/logout'
+  resources :users
 
   resources :pets
   root 'welcome#index'

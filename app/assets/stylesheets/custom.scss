@@ -12,10 +12,14 @@
 }
 
 #login {
-  width: 25%;
+  width: 50%;
   text-shadow: 2px 2px 3px rgba(0,0,0,0.6);
 
-  #login > .btn {
+  input, textarea{
+    color: black;
+  }
+
+    .btn {
     padding: 10px 24px;
   }
 }
