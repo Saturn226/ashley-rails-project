@@ -6,4 +6,5 @@ class User < ActiveRecord::Base
 
   has_many :pets
   has_many :breeds, through: :pets
+  has_many :addresses
 end
