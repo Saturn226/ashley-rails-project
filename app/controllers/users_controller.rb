@@ -3,21 +3,17 @@ class UsersController < ApplicationController
   end
 
   def show
-    @user = User.find_by_id(params[:id])
+    @user = current_user
   end
 
   def update
   end
 
   def edit
+    @user = current_user
   end
 
   def destroy
   end
 
-  def new
-  end
-
-  def create
-  end
 end

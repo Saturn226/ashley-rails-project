@@ -4,10 +4,20 @@ Rails.application.routes.draw do
 
   devise_for :users, :path => '', :path_names => {:sign_in => 'login', :sign_out => 'logout'}
 
+
+devise_scope :user do
+  authenticated :user do
+    root :to => 'users#show'
+  end
+  unauthenticated :user do
+    root :to => 'devise/registrations#new', as: :unauthenticated_root
+  end
+end
+
   resources :users
 
   resources :pets
-  root 'welcome#index'
+  #root 'welcome#index'
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

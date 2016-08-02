@@ -7,6 +7,11 @@
     background-size: cover;
 }
 
+
+body{
+    padding-top: 50px;
+}
+
 .topnav {
     font-size: 14px; 
 }
@@ -24,9 +29,20 @@
   }
 }
 
+
+
+#signup{
+    width: 50%;
+
+    .btn {
+    padding: 10px 24px;
+  }
+}
+
+
 .intro-message {
     position: relative;
-    padding-top: 20%;
+    padding-top: 5%;
     padding-bottom: 20%;
 }
 
