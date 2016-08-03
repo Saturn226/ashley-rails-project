@@ -8,11 +8,7 @@ class PetsController < ApplicationController
   end
 
   def show
-    if params[:user_id]
       @pet = Pet.find(params[:id])
-    else
-      @pet = Pet.find(params[:id])
-    end
   end
 
   def new
@@ -21,7 +17,6 @@ class PetsController < ApplicationController
 
   def create
       pet = current_user.pets.build(pet_params)
-      #breed =
       if pet.save
         redirect user_path
       else
@@ -30,6 +25,6 @@ class PetsController < ApplicationController
   end
 
   def pet_params
-    params.require(@pet).permit(:name, :bio, :user_id, :breed_id, :adoptable)
+    params.require(@pet).permit(:name, :bio, :breed_id, :adoptable, :price)
   end
 end
