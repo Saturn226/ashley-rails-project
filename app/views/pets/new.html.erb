@@ -1,3 +1,6 @@
+
+<h1>Create a New Pet </h1>
+
 <%= form_for @pet do |f| %>
 <div class="form-group">
   <%= f.label :name %><br>
@@ -15,11 +18,15 @@
 </div>
 
 <div class="form-group">
- <%= f.radio_button("pet", "adoptable", "yes") %>
- <%= f.radio_button("pet", "adoptable", "no") %>
+
+  <%= f.label :adoptable %> <br>
+  <%= f.label :adoptable, "Yes", :value => "true"  %>
+    <%= f.radio_button :adoptable, true %>
+    <%= f.label :adoptable, "No", :value => "false" %>
+    <%= f.radio_button :adoptable, false, :checked => true %>
 </div>
 
-  <%=f.submit "Create Pet" %>
+  
 
 
 <%end%>
