@@ -27,10 +27,13 @@
 </div>
 
 
-<select name="pet[breed_id]">
+<!-- <select name="pet[breed_id]">
   <option value="1">Mut</option>
   <option value="2">Bulldog</option>
-</select>
+</select> -->
+
+<%= f.label :Breed %>
+<%= f.select :breed_id , Breed.all.collect{|b| [b.name, b.id]} %> <br>
 
 <%= f.submit "Create Pet" %>
   
