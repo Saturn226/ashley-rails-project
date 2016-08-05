@@ -34,6 +34,7 @@
 
 <%= f.label :Breed %>
 <%= f.select :breed_id , Breed.all.collect{|b| [b.name, b.id]} %> <br>
+<%= Pet.breed.build(:name=>"Ashley") %>
 
 <%= f.submit "Create Pet" %>
   

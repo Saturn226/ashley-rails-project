@@ -11,4 +11,13 @@ class Pet < ActiveRecord::Base
     pet.adoptable = false
     pet.save
   end
+
+  def breed_name
+    self.breed.name.capitalize
+  end
+
+  def breed_name=(name)
+    !(self.breed = Breed.find_by(:name => name)).nil? || self.build_breed(:name => name)   
+  end
+
 end
