@@ -16,11 +16,12 @@ class PetsController < ApplicationController
   end
 
   def create
-      pet = current_user.pets.build(pet_params)
-      if pet.save
-        redirect user_path(current_user)
+      @pet = current_user.pets.build(pet_params)
+      if @pet.save
+        #redirect_to user_path(current_user)
+        redirect_to user_pet_path(pet)
       else
-        redirect new_user_pet_path
+        redirect_to new_user_pet_path
       end
   end
 

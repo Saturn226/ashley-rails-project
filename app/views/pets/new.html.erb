@@ -26,16 +26,19 @@
     <%= f.radio_button :adoptable, false, :checked => true %>
 </div>
 
+  
+<div class="form-group">
+  <%= f.label :Breed %>
+  <%= f.select :breed_names , Breed.all.collect{|b| [b.name, b.id]} %> <br>
+</div>
 
-<!-- <select name="pet[breed_id]">
-  <option value="1">Mut</option>
-  <option value="2">Bulldog</option>
-</select> -->
+<p>Or create a new breed</p>
 
-<%= f.label :Breed %>
-<%= f.select :breed_id , Breed.all.collect{|b| [b.name, b.id]} %> <br>
-<%= Pet.breed.build(:name=>"Ashley") %>
-
+  <!-- <input type="text" name= pet[breed_name]>  -->
+ 
+  <%= fields_for :breed, @pet.build_breed do |breed_fields| %>
+    <%= breed_fields.text_field :name %>
+  <% end %>
 <%= f.submit "Create Pet" %>
   
 
