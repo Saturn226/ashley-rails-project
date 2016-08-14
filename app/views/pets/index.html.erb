@@ -1,0 +1,7 @@
+<h1> List of Available Pets </h1>
+
+<ul>
+  <% @pets.all.each do |pet| %>
+   <li> <%= link_to pet.name, pet_path(pet)%> </li>
+  <% end %>
+</ul>

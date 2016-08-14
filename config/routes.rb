@@ -5,18 +5,20 @@ Rails.application.routes.draw do
   devise_for :users, :path => '', :path_names => {:sign_in => 'login', :sign_out => 'logout'}
 
 
-devise_scope :user do
-  authenticated :user do
-    root :to => 'users#show'
-  end
-  unauthenticated :user do
-    root :to => 'devise/registrations#new', as: :unauthenticated_root
-  end
-end
+# devise_scope :user do
+#   authenticated :user do
+#     root :to => 'users#show'
+#   end
+#   # unauthenticated :user do
+#   #   root :to => 'devise/registrations#new', as: :unauthenticated_root
+#   # end
+# end
 
   resources :users do
     resources :pets
   end
+
+  root 'users#show'
 
   resources :pets
   #root 'welcome#index'

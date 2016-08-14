@@ -1,7 +1,21 @@
 class Pet < ActiveRecord::Base
   belongs_to :user
-  belongs_to :breed
-  accepts_nested_attributes_for :breed
+  has_many :pet_breeds
+  has_many :breeds, through: :pet_breeds
+  accepts_nested_attributes_for :breeds, reject_if: lambda { |attributes| attributes[:name].blank? }
+ 
+  def breeds_attributes=(breeds_attributes)
+
+    breeds_attributes.values.each do |attribute|
+      binding.pry
+      if attribute[:name].present?  
+        breed = Breed.find_or_create_by(attribute)
+        if !self.breeds.include?(name)
+          self.breeds.build(:name => name)
+        end
+      end
+    end
+  end
 
   def self.adoptable_list
     #self.all.select {|pet| pet.adoptable }
@@ -14,17 +28,4 @@ class Pet < ActiveRecord::Base
     # pet.save
     update(user_id: current_user.id, adoptable: false)
   end
-
- def breed_names
-    Breed.all.collect(&:name)
-  end
-
-  def breed_name=(name)
-    #return if name == "" || name.nil?
-    #self.breed = Breed.find_by(:name => name) || self.build_breed(:name => name)  
-    !(self.breed = Breed.find_by(:name => name).nil?) || self.build_breed(:name => name) 
-  end
-
-
-
 end

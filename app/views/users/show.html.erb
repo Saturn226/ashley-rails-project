@@ -2,3 +2,13 @@
 <h1> User Show Page </h1>
 <h1><%=@user.email%></h1>
 <h2>User Id: <%=@user.id%>
+<h2> User Pets </h2>
+<% @user.pets.each do |pet| %>
+ <ul>
+  <li><%=link_to pet.name, user_pet_path(@user, pet)%></li>
+  </ul>
+<% end %>
+
+<%if @user.id == session[:id]%>
+  <%= button_to "Edit User", edit_user_password(@user) %>
+<%end%>

@@ -29,18 +29,20 @@
   
 <div class="form-group">
   <%= f.label :Breed %>
-  <%= f.select :breed_names , Breed.all.collect{|b| [b.name, b.id]} %> <br>
+  <%= f.collection_check_boxes :breed_ids, Breed.all, :id, :name %>
+  <%#= f.collection_select :breed_ids, Breed.all, :id, :name #WHY DONT YOU WORK?!%> 
 </div>
 
 <p>Or create a new breed</p>
 
-  <!-- <input type="text" name= pet[breed_name]>  -->
- 
-  <%= fields_for :breed, @pet.build_breed do |breed_fields| %>
+  <%= f.fields_for :breeds, @pet.breeds.build do |breed_fields| %>
     <%= breed_fields.text_field :name %>
   <% end %>
 <%= f.submit "Create Pet" %>
-  
+
+
+
+
 
 
 <%end%>
