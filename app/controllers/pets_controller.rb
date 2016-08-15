@@ -21,7 +21,8 @@ class PetsController < ApplicationController
       if pet.save
         redirect_to user_pet_path(current_user, pet)
       else
-        redirect_to new_user_pet_path
+        flash[:alert] = "You must fill out all fields"
+        redirect_to new_user_pet_path(current_user)
       end
   end
 

@@ -1,48 +1,10 @@
 
 <h1>Create a New Pet </h1>
 
-<%= form_for @pet do |f| %>
-<div class="form-group">
-  <%= f.label :name %><br>
-  <%= f.text_field :name%>
-</div>
 
-<div class="form-group">
-  <%= f.label :bio %><br>
-  <%= f.text_area :bio%>
-</div>
 
-<div class="form-group">
-  <%= f.label :price%><br>
-  <%= f.number_field :price %>
-</div>
-
-<div class="form-group">
-
-  <%= f.label :adoptable %> <br>
-  <%= f.label :adoptable, "Yes", :value => "true"  %>
-    <%= f.radio_button :adoptable, true %>
-    <%= f.label :adoptable, "No", :value => "false" %>
-    <%= f.radio_button :adoptable, false, :checked => true %>
-</div>
-
-  
-<div class="form-group">
-  <%= f.label :Breed %>
-  <%= f.collection_check_boxes :breed_ids, Breed.all, :id, :name %>
-  <%#= f.collection_select :breed_ids, Breed.all, :id, :name #WHY DONT YOU WORK?!%> 
-</div>
-
-<p>Or create a new breed</p>
-
-  <%= f.fields_for :breeds, @pet.breeds.build do |breed_fields| %>
-    <%= breed_fields.text_field :name %>
-  <% end %>
-<%= f.submit "Create Pet" %>
+<%= render 'form' %>
 
 
 
 
-
-
-<%end%>

@@ -3,11 +3,13 @@ class Pet < ActiveRecord::Base
   has_many :pet_breeds
   has_many :breeds, through: :pet_breeds
   accepts_nested_attributes_for :breeds, reject_if: lambda { |attributes| attributes[:name].blank? }
+
+  validates :name, presence: true
  
   def breeds_attributes=(breeds_attributes)
 
     breeds_attributes.values.each do |attribute|
-      binding.pry
+      #binding.pry
       if attribute[:name].present?  
         breed = Breed.find_or_create_by(attribute)
         if !self.breeds.include?(name)

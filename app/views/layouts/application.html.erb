@@ -19,7 +19,18 @@
     <![endif]-->
   </head>
   <header>
-       <%= render 'layouts/header' %>
+       
+       <% flash.each do |name, msg| %>
+          <div class="alert alert-<%= name == :notice ? "success" : "danger" %>" role="alert">
+              <%= msg %>
+              <a class="close" data-dismiss="alert" fade in >×</a>
+            
+          </div>
+        <% end %>
+
+        <% if user_signed_in? %>
+          <%= render 'layouts/header' %>
+        <% end %>
   </header>
   
   <body>
