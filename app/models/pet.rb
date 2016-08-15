@@ -2,7 +2,7 @@ class Pet < ActiveRecord::Base
   belongs_to :user
   has_many :pet_breeds
   has_many :breeds, through: :pet_breeds
-  # accepts_nested_attributes_for :breeds, reject_if: lambda { |attributes| attributes[:name].blank? }
+  
 
   validates :name, presence: true
  
@@ -19,7 +19,6 @@ class Pet < ActiveRecord::Base
   end
 
   def self.adoptable_list
-    #self.all.select {|pet| pet.adoptable }
     where(adoptable: true)
   end
 
