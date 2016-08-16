@@ -1,10 +1,5 @@
 class PetsController < ApplicationController
   def index
-    # if params[:user_id]
-    #   @pets = User.find(params[:user_id]).pets
-    # else
-    #   @pets = Pet.all
-    # end
     @pets = Pet.adoptable_list
   end
 
@@ -14,6 +9,19 @@ class PetsController < ApplicationController
 
   def new
     @pet = Pet.new(user_id: params[:user_id])
+  end
+
+  def edit
+    @pet = Pet.find(params[:id])
+  end
+
+  def update
+    @pet = Pet.find(params[:id])
+    if @pet.update(pet_params)
+      redirect_to @pet
+    else
+      redirect_to edit_pet_path(@pet)
+    end
   end
 
   def adopt

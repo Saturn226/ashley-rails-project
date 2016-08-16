@@ -19,11 +19,9 @@
 <%end%>
 
 
+<%= button_to 'Back to List', pets_path, method: :get %>
 
-<form method="get" action="/pets/adopt">
-  <input type="submit" value="Back to List">
-</form>
-
+<%= button_to 'Edit Pet', edit_pet_path(@pet), method: :get%>
 
 <%if @pet.user.id == current_user.id%>
   <form method="get" action="/pets/<%=@pet.id%>/edit">
