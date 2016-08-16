@@ -7,4 +7,33 @@
 
 
 <h2> Pet Bio: <%=@pet.bio %></h2>
-<h2> Pet Price: $<%=@pet.price%></h2>
+
+
+
+<%if @pet.adoptable%>
+  Price:<%=@pet.price%>
+  <%if @pet.user.id != current_user.id%>
+    <form method="post" action="/pets/adopt">
+      <input type="hidden" name="id" value="<%=@pet.id%>">
+      <input type="submit" value="Adopt this pet">
+    </form>
+  <%end%>
+<%end%>
+
+
+
+<form method="get" action="/pets/adopt">
+  <input type="submit" value="Back to List">
+</form>
+
+
+<%if @pet.user.id == current_user.id%>
+  <form method="get" action="/pets/<%=@pet.id%>/edit">
+    <input type = "submit" value="edit"%>
+  </form>
+<%end%>
+
+
+<form method="post" action="/pets/<%=@pet.id%>/delete">
+  <input type="submit" value="delete pet">
+</form>

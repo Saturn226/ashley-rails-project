@@ -2,7 +2,7 @@ class Pet < ActiveRecord::Base
   belongs_to :user
   has_many :pet_breeds
   has_many :breeds, through: :pet_breeds
-  
+  scope :adoptable_list, -> { where(adoptable: true) }
 
   validates :name, presence: true
  
@@ -18,9 +18,9 @@ class Pet < ActiveRecord::Base
     end
   end
 
-  def self.adoptable_list
-    where(adoptable: true)
-  end
+  # def self.adoptable_list
+  #   where(adoptable: true)
+  # end
 
   def adopt
     # pet.user_id = user.id
