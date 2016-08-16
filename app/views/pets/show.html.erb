@@ -1,4 +1,5 @@
 <h1> Pet Name: <%=@pet.name%></h1>
+<h2> Pet Owner: <%=@pet.user.id%></h2>
 <h2> Pet Breed:</h2>
    <%@pet.breeds.each do  |b| %>
       <h3><%= b.name %></h3>
@@ -10,13 +11,10 @@
 
 
 
-<%if @pet.adoptable%>
+<%if @pet.adoptable?%>
   Price:<%=@pet.price%>
   <%if @pet.user.id != current_user.id%>
-    <form method="post" action="/pets/adopt">
-      <input type="hidden" name="id" value="<%=@pet.id%>">
-      <input type="submit" value="Adopt this pet">
-    </form>
+    <%= button_to 'Adopt this pet', pets_adopt_path(id: @pet.id)%>
   <%end%>
 <%end%>
 

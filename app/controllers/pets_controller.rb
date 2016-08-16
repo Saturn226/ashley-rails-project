@@ -16,6 +16,12 @@ class PetsController < ApplicationController
     @pet = Pet.new(user_id: params[:user_id])
   end
 
+  def adopt
+     pet = Pet.find(params[:id])
+     pet.update(user_id: current_user.id, adoptable: false)
+     redirect_to user_pet_path(current_user,pet)
+  end
+
   def create
       pet = current_user.pets.build(pet_params)
       if pet.save

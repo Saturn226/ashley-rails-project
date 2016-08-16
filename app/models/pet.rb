@@ -18,14 +18,15 @@ class Pet < ActiveRecord::Base
     end
   end
 
-  # def self.adoptable_list
-  #   where(adoptable: true)
-  # end
+
+  def adoptable?
+    self.adoptable
+  end
 
   def adopt
     # pet.user_id = user.id
     # pet.adoptable = false
     # pet.save
-    update(user_id: current_user.id, adoptable: false)
+    #update(user_id: current_user.id, adoptable: false)
   end
 end

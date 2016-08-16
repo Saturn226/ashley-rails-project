@@ -15,12 +15,15 @@ Rails.application.routes.draw do
 # end
 
   resources :users do
-    resources :pets
+    resources :pets, only: [:show, :new, :index]
   end
+  resources :pets
+
+  post '/pets/adopt' => 'pets#adopt'
 
   root 'users#show'
 
-  resources :pets
+  
   #root 'welcome#index'
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
