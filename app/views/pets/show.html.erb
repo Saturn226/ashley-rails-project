@@ -23,13 +23,5 @@
 
 <%= button_to 'Edit Pet', edit_pet_path(@pet), method: :get%>
 
-<%if @pet.user.id == current_user.id%>
-  <form method="get" action="/pets/<%=@pet.id%>/edit">
-    <input type = "submit" value="edit"%>
-  </form>
-<%end%>
+<%= button_to 'Delete Pet',  pet_path(@pet), method: :delete %>
 
-
-<form method="post" action="/pets/<%=@pet.id%>/delete">
-  <input type="submit" value="delete pet">
-</form>
