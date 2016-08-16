@@ -9,6 +9,10 @@
   </ul>
 <% end %>
 
-<%if @user.id == session[:id]%>
-  <%= button_to "Edit User", edit_user_password(@user) %>
+
+
+
+<%if @user.id == current_user.id%>
+  <%= button_to 'Create New Pet',  new_user_pet_path(@user), method: :get%>
+  <%= button_to "Edit User", edit_user_path(@user) %>
 <%end%>
