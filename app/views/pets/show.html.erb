@@ -2,9 +2,9 @@
 <h3> Pet Owner: <%=@pet.user.full_name%></h2>
 <h3> Pet Breed:
    <%@pet.breeds.each do  |b| %>
-    <%= b.name %>
+      <%= b.name %>
    <% end %>
-  </h3>
+</h3>
 
 
 
@@ -13,16 +13,15 @@
 
 
 <%if @pet.adoptable?%>
-  Price:<%=@pet.price%>
+  <h1>Price: $<%=@pet.price%></h1>
   <%if @pet.user.id != current_user.id%>
     <%= button_to 'Adopt this pet', pets_adopt_path(id: @pet.id)%>
   <%end%>
 <%end%>
 
 
-<%= button_to 'Back to List', pets_path, method: :get %>
+<%#= button_to 'Back to List', pets_path, method: :get %>
 
 <%= button_to 'Edit Pet', edit_pet_path(@pet), method: :get%>
-
 <%= button_to 'Delete Pet',  pet_path(@pet), method: :delete %>
 

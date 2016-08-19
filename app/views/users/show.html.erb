@@ -10,13 +10,16 @@
 <% end %>
 
 
-<h3>Your pets currently for adoption</h3>
-<% @user.pets.each do |pet| %>
+<%if @user.adoptable_pets %>
+  <h3> Here are your pets for adoption </h3>
 
-<ul>  
-  <%= link_to pet.name, user_pet_path(@user,pet) if pet.adoptable? %>
-</ul>
-<%end%>
+  <% @user.adoptable_pets.each do |pet| %>
+    <ul>  
+      <li><%= link_to pet.name, user_pet_path(@user,pet)%></li>
+    </ul>
+  <%end%>
+<% end %>
+  
 
 <%if @user.id == current_user.id%>
   <%= button_to 'Create New Pet',  new_user_pet_path(@user), method: :get%>

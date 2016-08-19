@@ -16,6 +16,10 @@ class User < ActiveRecord::Base
   end
 
 
+  def adoptable_pets
+    self.pets.where(adoptable: true)
+  end
+
 
   def self.new_with_session(params, session)
     super.tap do |user|

@@ -1,4 +1,4 @@
-<%= form_for @pet do |f| %>
+
 <div class="form-group">
   <%= f.label :name %><br>
   <%= f.text_field :name%>
@@ -18,22 +18,20 @@
 
   <%= f.label :adoptable %> <br>
   <%= f.label :adoptable, "Yes", :value => "true"  %>
-    <%= f.radio_button :adoptable, true %>
-    <%= f.label :adoptable, "No", :value => "false" %>
-    <%= f.radio_button :adoptable, false, :checked => true %>
+  <%= f.radio_button :adoptable, true %>
+  <%= f.label :adoptable, "No", :value => "false" %>
+  <%= f.radio_button :adoptable, false, :checked => true %>
 </div>
 
   
 <div class="form-group">
   <%= f.label :Breed %><br>
   <%= f.collection_check_boxes :breed_ids, Breed.all, :id, :name %>
-  <%#= f.collection_select :breed_ids, Breed.all, :id, :name %> 
 </div>
 
 <p>Or create a new breed</p>
 
-  <%= f.fields_for :breeds, @pet.breeds.build do |breed_fields| %>
-    <%= breed_fields.text_field :name %>
-  <% end %>
-    <%= f.submit "Create Pet" %>
-<%end%>
+<%= f.fields_for :breeds, @pet.breeds.build do |breed_fields| %>
+  <%= breed_fields.text_field :name %>
+<% end %>
+    
