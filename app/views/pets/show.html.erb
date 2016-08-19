@@ -1,13 +1,14 @@
 <h1> Pet Name: <%=@pet.name%></h1>
-<h2> Pet Owner: <%=@pet.user.id%></h2>
-<h2> Pet Breed:</h2>
+<h3> Pet Owner: <%=@pet.user.full_name%></h2>
+<h3> Pet Breed:
    <%@pet.breeds.each do  |b| %>
-      <h3><%= b.name %></h3>
+    <%= b.name %>
    <% end %>
+  </h3>
 
 
 
-<h2> Pet Bio: <%=@pet.bio %></h2>
+<h3> Pet Bio: <%=@pet.bio %></h3>
 
 
 
