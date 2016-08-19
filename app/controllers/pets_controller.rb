@@ -26,7 +26,7 @@ class PetsController < ApplicationController
 
   def adopt
      pet = Pet.find(params[:id])
-     pet.update(user_id: current_user.id, adoptable: false)
+     pet.update(user: current_user, adoptable: false)
      redirect_to user_pet_path(current_user,pet)
   end
 

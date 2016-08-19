@@ -1,0 +1,26 @@
+<%= form for @user do |f| %>
+
+<%= f.text :name %>
+<%= f.submit %>
+<% end %>
+
+
+
+
+<%= form_for @user do |f| %>
+<div class="form-group">
+  <%= f.label :first_name %><br>
+  <%= f.text_field :first_name%>
+</div>
+
+<div class="form-group">
+  <%= f.label :last_name %><br>
+  <%= f.text_area :last_name%>
+</div>
+
+<div class="form-group">
+  <%= f.label :price%><br>
+  <%= f.number_field :price %>
+</div>
+<%= f.submit %>
+<% end %>

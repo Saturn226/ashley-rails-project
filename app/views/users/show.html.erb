@@ -1,18 +1,24 @@
 
-<h1> User Show Page </h1>
-<h1><%=@user.email%></h1>
-<h2>User Id: <%=@user.id%>
-<h2> User Pets </h2>
+<h1> Welcome, <%=@user.first_name%></h1>
+
+<h3> Here are the pets you own </h3> 
+
 <% @user.pets.each do |pet| %>
  <ul>
-  <li><%=link_to pet.name, user_pet_path(@user, pet)%></li>
+  <li><%=link_to pet.name , user_pet_path(@user, pet)%></li>
   </ul>
 <% end %>
 
 
+<h3>Your pets currently for adoption</h3>
+<% @user.pets.each do |pet| %>
 
+<ul>  
+  <%= link_to pet.name, user_pet_path(@user,pet) if pet.adoptable? %>
+</ul>
+<%end%>
 
 <%if @user.id == current_user.id%>
   <%= button_to 'Create New Pet',  new_user_pet_path(@user), method: :get%>
-  <%= button_to "Edit User", edit_user_path(@user) %>
+  <%= button_to "Edit User", edit_user_registration_path, method: :get %>
 <%end%>

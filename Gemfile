@@ -6,6 +6,7 @@ gem 'require_all'
 gem 'pry'
 gem 'devise'
 gem 'devise-bootstrap-views'
+gem 'omniauth'
 gem 'omniauth-facebook'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
