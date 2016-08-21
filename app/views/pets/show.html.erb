@@ -14,7 +14,7 @@
 
 <%if @pet.adoptable?%>
   <h1>Price: $<%=@pet.price%></h1>
-  <%if @pet.user.id != current_user.id%>
+  <%if @pet.user != current_user%>
     <%= button_to 'Adopt this pet', pets_adopt_path(id: @pet.id)%>
   <%end%>
 <%end%>

@@ -21,7 +21,7 @@
 <% end %>
   
 
-<%if @user.id == current_user.id%>
+<%if @user == current_user%>
   <%= button_to 'Create New Pet',  new_user_pet_path(@user), method: :get%>
   <%= button_to "Edit User", edit_user_registration_path, method: :get %>
 <%end%>
