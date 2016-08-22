@@ -8,6 +8,7 @@ class User < ActiveRecord::Base
   has_many :breeds, through: :pets
   has_many :addresses
 
+  validates :first_name, :last_name, presence: true
 
 
 
