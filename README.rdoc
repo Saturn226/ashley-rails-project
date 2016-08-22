@@ -1,28 +1,19 @@
 == README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+This is my rails assessment project
 
-Things you may want to cover:
+It is called "My Best Friend"
 
-* Ruby version
+to run, download the repo and run the rails server with rails s
+Open up your browser and go to localhost:3000
 
-* System dependencies
+You can create an account or login with facebook
 
-* Configuration
+Once you are logged in, you are able to create a pet and list it for adoption. 
 
-* Database creation
+You can give it a name, a bio and select a breed. A pet can have multiple breeds
+Once a pet is created it can be viewed under your profile. 
 
-* Database initialization
+You can edit a pet at anytime. 
 
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
-
-
-Please feel free to use a different markup language if you do not plan to run
-<tt>rake doc:app</tt>.
+Once you place a pet for adoption, other users are able to adopt your pet. 
