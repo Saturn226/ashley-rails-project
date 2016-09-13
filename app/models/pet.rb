@@ -4,7 +4,7 @@ class Pet < ActiveRecord::Base
   has_many :breeds, through: :pet_breeds
   scope :adoptable_list, -> { where(adoptable: true) }
 
-  has_attached_file :pet_image
+  has_attached_file :pet_image, default_url: ':style/dog_image.jpeg' , styles: { thumb: "100x100>"}
   validates_attachment_content_type :pet_image, content_type: /\Aimage\/.*\Z/
 
   validates :name, presence: true

@@ -5,7 +5,9 @@
 
 <% @user.pets.each do |pet| %>
  <ul>
-  <li><%=link_to pet.name , user_pet_path(@user, pet)%></li>
+  <li>
+    <%= image_tag pet.pet_image.url(:thumb)%>
+    <%=link_to pet.name , user_pet_path(@user, pet)%></li>
   </ul>
 <% end %>
 
@@ -15,7 +17,11 @@
 
   <% @user.adoptable_pets.each do |pet| %>
     <ul>  
-      <li><%= link_to pet.name, user_pet_path(@user,pet)%></li>
+      <li>
+      <%= image_tag pet.pet_image.url(:thumb)%>
+      <%= link_to pet.name, user_pet_path(@user,pet)%>
+        
+      </li>
     </ul>
   <%end%>
 <% end %>

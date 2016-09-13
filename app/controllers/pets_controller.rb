@@ -1,6 +1,7 @@
 class PetsController < ApplicationController
   def index
     @pets = Pet.adoptable_list
+    render json: @pets
   end
 
   def show
@@ -50,6 +51,6 @@ class PetsController < ApplicationController
   private 
 
   def pet_params
-    params.require(:pet).permit(:name, :bio, :adoptable, :price, breeds_attributes: [:name], breed_ids:[])
+    params.require(:pet).permit(:name, :bio, :adoptable, :price, :pet_image, breeds_attributes: [:name], breed_ids:[])
   end
 end

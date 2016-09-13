@@ -2,6 +2,9 @@
 
 <ul>
   <% @pets.all.each do |pet| %>
-   <li> <%= link_to pet.name, pet_path(pet)%> </li>
+   <li> 
+    <%= image_tag pet.pet_image.url(:thumb) %>
+    <%= link_to pet.name, pet_path(pet)%> 
+   </li>
   <% end %>
 </ul>
