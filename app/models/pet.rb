@@ -4,6 +4,9 @@ class Pet < ActiveRecord::Base
   has_many :breeds, through: :pet_breeds
   scope :adoptable_list, -> { where(adoptable: true) }
 
+  has_attached_file :pet_image
+  validates_attachment_content_type :pet_image, content_type: /\Aimage\/.*\Z/
+
   validates :name, presence: true
  
   def breeds_attributes=(breeds_attributes)
@@ -18,6 +21,9 @@ class Pet < ActiveRecord::Base
     end
   end
 
+  def self.most_recently_adoptable_pet
+    adoptable_list.last
+  end
 
   def adoptable?
     self.adoptable

@@ -1,5 +1,7 @@
 source 'https://rubygems.org'
 
+
+gem 'paperclip'
 gem 'bootstrap-sass', '~> 3.2.0'
 gem 'autoprefixer-rails'
 gem 'require_all'

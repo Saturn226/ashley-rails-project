@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160821001740) do
+ActiveRecord::Schema.define(version: 20160913050121) do
 
   create_table "addresses", force: :cascade do |t|
     t.string   "street_address_1"
@@ -40,8 +40,12 @@ ActiveRecord::Schema.define(version: 20160821001740) do
     t.boolean  "adoptable"
     t.decimal  "price"
     t.integer  "user_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at",             null: false
+    t.datetime "updated_at",             null: false
+    t.string   "pet_image_file_name"
+    t.string   "pet_image_content_type"
+    t.integer  "pet_image_file_size"
+    t.datetime "pet_image_updated_at"
   end
 
   create_table "users", force: :cascade do |t|
