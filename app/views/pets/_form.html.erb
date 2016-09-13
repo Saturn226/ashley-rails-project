@@ -14,11 +14,6 @@
   <%= f.text_area :bio%>
 </div>
 
-<div class="form-group">
-  <%= f.label :price%><br>
-  <%= f.number_field :price %>
-</div>
-
 
 <div class="form-group">
 
@@ -27,6 +22,11 @@
   <%= f.radio_button :adoptable, true %>
   <%= f.label :adoptable, "No", :value => "false" %>
   <%= f.radio_button :adoptable, false, :checked => true %>
+</div>
+
+<div class="form-group" id="price">
+  <%= f.label :price%><br>
+  <%= f.number_field :price %>
 </div>
 
   
@@ -40,4 +40,18 @@
 <%= f.fields_for :breeds, @pet.breeds.build do |breed_fields| %>
   <%= breed_fields.text_field :name %>
 <% end %>
+
+<!-- Hiding the price box -->
+ <script type="text/javascript" charset="utf-8">
+   $(function(){
+    $("#price").hide();
+     $('input[type=radio]').click(function(){
+        if (this.id == "pet_adoptable_true")
+          $("#price").show();
+        else(this.id == 'pet_adoptable_false')
+          $("#price").hide();
+    }); 
+   })
+ </script>
+
     
