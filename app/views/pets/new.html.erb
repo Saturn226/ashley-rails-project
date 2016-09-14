@@ -1,10 +1,11 @@
 
-<h1>Create a New Pet </h1>
+  <h1 class="pet-form">Create a New Pet </h1>
 
-<%= form_for @pet, html: {multipart: true} do |f| %>
-  <%= render 'form',  f: f %>
-  <%= f.submit "Create Pet" %>
-<% end %>
+  <%= form_for @pet, html: {multipart: true} do |f| %>
+    <%= render 'form',  f: f %>
+    <%= f.submit "Create Pet", class: "pet-form"%>
+  <% end %>
+</div>
 
 
 

@@ -1,7 +1,10 @@
 class PetsController < ApplicationController
   def index
     @pets = Pet.adoptable_list
-    render json: @pets
+    respond_to do |format| 
+      format.json { render json: @pets }
+      format.html {render :index }
+    end
   end
 
   def show
@@ -36,9 +39,10 @@ class PetsController < ApplicationController
   end
 
   def create
-      pet = current_user.pets.build(pet_params)
-      if pet.save
-        redirect_to user_pet_path(current_user, pet)
+      @pet = current_user.pets.build(pet_params)
+      if @pet.save
+        #redirect_to user_pet_path(current_user, pet)
+        render json: @pet, status: 201
       else
         flash[:alert] = "You must fill out all fields"
         redirect_to new_user_pet_path(current_user)
