@@ -1,14 +1,16 @@
-<h1> List of Available Pets </h1>
-<%= link_to "load more pets", '#', class: "load_pets" %>
-<ul>
-  <% @pets.all.each do |pet| %>
-   <li> 
-    <%= image_tag pet.pet_image.url(:thumb) %>
-    <%= link_to pet.name, pet_path(pet)%> 
-   </li>
-  <% end %>
-</ul>
 
+<div class="container">
+  <h1> List of Available Pets </h1>
+  <%= link_to "load more pets", '#', class: "load_pets" %>
+  <ul class="list-group list-unstyled list-inline">
+    <% @pets.all.each do |pet| %>
+     <li class="list-group-item"> 
+     <%= link_to pet.name, pet_path(pet)%> <br>
+      <%= image_tag pet.pet_image.url(:thumb) %>
+     </li>
+    <% end %>
+  </ul>
+</div>
 
 <script>
 //what i would like to do is show only 2 more pets at a time whenever
