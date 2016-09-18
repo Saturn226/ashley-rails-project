@@ -5,14 +5,16 @@
 <div class= "container">
 <h3> Here are the pets you own </h3> 
 
-<ul class= "list-group list-unstyled list-inline pet-list">
+<div class= "list-group list-unstyled list-inline pet-list">
 <% @user.pets.each do |pet| %>
-    <li class="list-group-item">
-    <%=link_to pet.name , user_pet_path(@user, pet)%><br>
+    
+    <%=link_to user_pet_path(@user, pet), class:"list-group-item" do %>
+      <%=pet.name%><br> 
       <%= image_tag pet.pet_image.url(:thumb) %>
-      </li>
+    <%end%>
+
   <% end %>
-  </ul>
+  </div>
 </div>
 
 
@@ -20,22 +22,27 @@
   <%if @user.adoptable_pets %>
     <h3> Here are your pets for adoption </h3>
 
-    <ul class = "list-group list-unstyled list-inline pet-list">  
+    <div class = "list-group list-unstyled list-inline pet-list">  
       <% @user.adoptable_pets.each do |pet| %>
       
-        <li class="list-group-item">
-        <%= link_to pet.name, user_pet_path(@user,pet)%><br>
-        <%= image_tag pet.pet_image.url(:thumb)%>
         
-          
-        </li>
+        <%= link_to  user_pet_path(@user,pet), class: "list-group-item" do %>
+         <%=pet.name%><br>
+        <%= image_tag pet.pet_image.url(:thumb)%>
+        <%end%>
+        
     <%end%>
-    </ul>
+    </div>
   <% end %>
 </div>
   
 
 <%if @user == current_user%>
-  <%= button_to 'Create New Pet',  new_user_pet_path(@user), method: :get%>
-  <%= button_to "Edit User", edit_user_registration_path, method: :get %>
+ <div style="float:left; padding:16px">
+    <%= button_to 'Create New Pet',  new_user_pet_path(@user), method: :get, class: "btn btn-default btn-lg"%>
+  </div>
+
+  <div style="float:left; padding:16px">
+    <%= button_to "Edit User", edit_user_registration_path, method: :get, class: "btn btn-default btn-lg" %>
+  </div>
 <%end%>

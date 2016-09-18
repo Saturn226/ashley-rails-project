@@ -3,7 +3,7 @@
 <div class = "container">
   <%= image_tag @pet.pet_image.url, class: "img-responsive"%>
   <h1> Pet Name: <%=@pet.name%></h1>
-  <h3> Pet Owner: <%=@pet.user.full_name%></h2>
+  <h3> Pet Owner: <%=@pet.user.full_name%></h3>
   <h3> Pet Breed:
      <%@pet.breeds.each do  |b| %>
         <%= b.name %>
@@ -11,7 +11,7 @@
   </h3>
 
 <h3> Pet Bio: <%=@pet.bio %></h3>
-</div>
+
 
 
 
@@ -21,12 +21,18 @@
     <%= button_to 'Adopt this pet', pets_adopt_path(id: @pet.id)%>
   <%end%>
 <%end%>
-
+</div>
 
 <%#= button_to 'Back to List', pets_path, method: :get %>
+<div class="container">
+  <div style="float:left; padding:16px">
+    <%= button_to 'Edit Pet', edit_pet_path(@pet), method: :get, class: "btn btn-lg btn-default"%>
+    </div>
 
-<%= button_to 'Edit Pet', edit_pet_path(@pet), method: :get%>
-<%= button_to 'Delete Pet',  pet_path(@pet), method: :delete %>
+  <div style="float:left; padding:16px">
+    <%= button_to 'Delete Pet',  pet_path(@pet), method: :delete, class: "btn btn-lg btn-default" %>
+  </div>
+</div>
 
 
   <%#= link_to "Test", pet_path(@pet) class: "test_button"%>

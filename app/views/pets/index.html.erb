@@ -2,14 +2,14 @@
 <div class="container">
   <h1> List of Available Pets </h1>
   <%= link_to "load more pets", '#', class: "load_pets" %>
-  <ul class="list-group list-unstyled list-inline">
+  <div class="list-group list-unstyled list-inline pet-list">
     <% @pets.all.each do |pet| %>
-     <li class="list-group-item"> 
-     <%= link_to pet.name, pet_path(pet)%> <br>
+     <%=link_to pet_path(pet), class:"list-group-item" do %>
+      <%=pet.name%><br> 
       <%= image_tag pet.pet_image.url(:thumb) %>
-     </li>
+    <%end%>
     <% end %>
-  </ul>
+  </div>
 </div>
 
 <script>
