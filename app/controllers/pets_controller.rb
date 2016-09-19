@@ -2,8 +2,8 @@ class PetsController < ApplicationController
   def index
     @pets = Pet.adoptable_list
     respond_to do |format| 
+      format.html { render :index }
       format.json { render json: @pets }
-      format.html {render :index }
     end
   end
 

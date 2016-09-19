@@ -1,49 +1,52 @@
 <div id= "users-show">
 
-<h1> Welcome, <%=@user.first_name%></h1>
-
-<div class= "container">
-<h3> Here are the pets you own </h3> 
-
-<div class= "list-group list-unstyled list-inline pet-list">
-<% @user.pets.each do |pet| %>
     
-    <%=link_to user_pet_path(@user, pet), class:"list-group-item" do %>
-      <%=pet.name%><br> 
-      <%= image_tag pet.pet_image.url(:thumb) %>
-    <%end%>
 
-  <% end %>
-  </div>
-</div>
+    <div class= "container">
+    <h1> Welcome, <%=@user.first_name%></h1>
+    <h3> Here are the pets you own </h3> 
 
-
-<div class="container">
-  <%if @user.adoptable_pets %>
-    <h3> Here are your pets for adoption </h3>
-
-    <div class = "list-group list-unstyled list-inline pet-list">  
-      <% @user.adoptable_pets.each do |pet| %>
-      
+    <div class= "list-group list-unstyled list-inline pet-list">
+    <% @user.pets.each do |pet| %>
         
-        <%= link_to  user_pet_path(@user,pet), class: "list-group-item" do %>
-         <%=pet.name%><br>
-        <%= image_tag pet.pet_image.url(:thumb)%>
+        <%=link_to user_pet_path(@user, pet), class:"list-group-item" do %>
+          <%=pet.name%><br> 
+          <%= image_tag pet.pet_image.url(:thumb) %>
         <%end%>
-        
-    <%end%>
+
+      <% end %>
+      </div>
     </div>
-  <% end %>
-</div>
-  
 
-<%if @user == current_user%>
- <div style="float:left; padding:16px">
-    <%= button_to 'Create New Pet',  new_user_pet_path(@user), method: :get, class: "btn btn-default btn-lg"%>
-  </div>
 
-  <div style="float:left; padding:16px">
-    <%= button_to "Edit User", edit_user_registration_path, method: :get, class: "btn btn-default btn-lg" %>
-  </div>
-<%end%>
+    <div class="container">
+      <%if @user.adoptable_pets %>
+        <h3> Here are your pets for adoption </h3>
+
+        <div class = "list-group list-unstyled list-inline pet-list">  
+          <% @user.adoptable_pets.each do |pet| %>
+          
+            
+            <%= link_to  user_pet_path(@user,pet), class: "list-group-item" do %>
+             <%=pet.name%><br>
+            <%= image_tag pet.pet_image.url(:thumb)%>
+            <%end%>
+            
+        <%end%>
+        </div>
+      <% end %>
+    </div>
+      
+
+    <div class = "container ">
+      <%if @user == current_user%>
+       <div style="float:left; padding:16px">
+          <%= button_to 'Create New Pet',  new_user_pet_path(@user), method: :get, class: "btn btn-default btn-lg"%>
+        </div>
+
+        <div style="float:left; padding:16px">
+          <%= button_to "Edit User", edit_user_registration_path, method: :get, class: "btn btn-default btn-lg" %>
+        </div>
+      <%end%>
+    </div>
 </div>

@@ -74,6 +74,8 @@ GEM
     devise-bootstrap-views (0.0.8)
     erubis (2.7.0)
     execjs (2.7.0)
+    faker (1.6.3)
+      i18n (~> 0.5)
     faraday (0.9.2)
       multipart-post (>= 1.2, < 3)
     globalid (0.3.7)
@@ -216,6 +218,7 @@ DEPENDENCIES
   coffee-rails (~> 4.1.0)
   devise
   devise-bootstrap-views
+  faker
   jbuilder (~> 2.0)
   jquery-rails
   omniauth

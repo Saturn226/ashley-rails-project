@@ -1,5 +1,6 @@
 source 'https://rubygems.org'
 
+gem 'faker'
 gem 'active_model_serializers'
 gem 'paperclip'
 gem 'bootstrap-sass', '~> 3.2.0'
