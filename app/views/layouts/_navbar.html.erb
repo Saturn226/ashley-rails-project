@@ -16,7 +16,7 @@
             <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                 <ul class="nav navbar-nav navbar-right">
                     <li><%= link_to "Home",   '/' %></li>
-                    <li><%= link_to "Adopt a Pet", pets_path %></li>
+                    <li><%= link_to "Adopt a Pet", pets_path, id: "adoptButton" %></li>
 
 
                 <% if user_signed_in? %>

@@ -41,7 +41,7 @@ class PetsController < ApplicationController
   def create
       @pet = current_user.pets.build(pet_params)
       if @pet.save
-        binding.pry
+        #binding.pry
         #redirect_to user_pet_path(current_user, pet)
         render json: @pet, status: 201
       else

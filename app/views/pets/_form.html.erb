@@ -47,6 +47,7 @@
 
 
 <div id="petResult">
+  <img id="petImage">
   <h1 id="petName"></h2>
   <h3 id="userName"></h3>
   <h3 id="petBio"></h3>
@@ -63,13 +64,13 @@
           $("#price").hide();
     }); 
 
-      $('form').submit(function(event) {
+    $('form').submit(function(event) {
       //prevent form from submitting the default way
       event.preventDefault();
-
+      debugger
       var values = $(this).serialize();
-      var posting = $.post('/pets', values);
-      posting.done(function(data) {
+
+      $.post('/pets', values).done(function(data) {
         // TODO: handle response=
         var pet = data;
         console.log(pet)
