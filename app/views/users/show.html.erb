@@ -9,7 +9,7 @@
     <div class= "list-group list-unstyled list-inline pet-list">
     <% @user.pets.each do |pet| %>
         
-        <%=link_to user_pet_path(@user, pet), class:"list-group-item pet-item" do %>
+        <%=link_to user_pet_path(@user, pet), class:"list-group-item pet-item", data:{:id => pet.id} do %>
           <%=pet.name%><br> 
           <%= image_tag pet.pet_image.url(:thumb) %>
         <%end%>

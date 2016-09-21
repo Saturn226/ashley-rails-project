@@ -2,8 +2,8 @@
 
 Specs:
 - [x] Use jQuery for implementing new requirements
-- [ ] Include a show page rendered using jQuery and an Active Model Serialization JSON backend.
-- [ ] Include an index page rendered using jQuery and an Active Model Serialization JSON backend.
+- [x] Include a show page rendered using jQuery and an Active Model Serialization JSON backend.
+- [x] Include an index page rendered using jQuery and an Active Model Serialization JSON backend.
 - [x] Include at least one has_many relationship in information rendered via JSON
 - [ ] Include at least one link that loads or updates a resource without reloading the page
 - [ ] Translate JSON responses into js model objects

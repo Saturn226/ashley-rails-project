@@ -33,11 +33,13 @@
 
 
 $(function(){
+
   $('.pet-item').on('mouseover', function(){
 
-        var id = $(this).attr("data-id")
+        var element = $(this)
+        var id = element.data("id")
         //debugger
-        $.get('/pets/' +id+'.json', function(data){
+        $.get('/pets/' +id+ '.json', function(data){
           var pet = data;
           var name = pet["name"]
           var bio = pet["bio"]
@@ -45,18 +47,15 @@ $(function(){
           var price = pet["price"]
           var owner = pet["user"]["first_name"] + " " + pet["user"]["last_name"];
           
-
           
           var html = "<h1>" + name + "</h1>"
               html += "<p>Owner: " +owner + "</p>"
-              html += "<a href=\"/pets/83\">More Info</a>"
+              html += "<a href=\"/pets/id\">More Info</a>"
 
           hoverCard = $('#hover-card').html(html).html();
-          //hoverCard = $('#hover-card').html();
 
 
-
-          $('.pet-item').popover({trigger: "hover", title: "Title", html: true, content: hoverCard})
+          $(element).popover({trigger: "hover", title: "Title", html: true, content: hoverCard})
 
 
       }) // end ajax

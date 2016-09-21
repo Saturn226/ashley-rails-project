@@ -4,7 +4,7 @@
 
     <div class="list-group list-unstyled list-inline pet-list">
       <% @pets.all.each do |pet| %>
-       <%=link_to pet_path(pet), class:"list-group-item pet-item", data:{:poload =>"/pets/#{pet.id}.json", :id => pet.id } do %>
+       <%=link_to pet_path(pet), class:"list-group-item pet-item", data:{:id => pet.id } do %>
         <%=pet.name%><br> 
         <%= image_tag pet.pet_image.url(:thumb) %>
       <%end%>
