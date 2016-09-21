@@ -1,5 +1,5 @@
 class PetsController < ApplicationController
-  def index
+  def index #adoptable pets
     @pets = Pet.adoptable_list
     respond_to do |format| 
       format.html { render :index }
