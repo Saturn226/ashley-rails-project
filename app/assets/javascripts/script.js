@@ -1,3 +1,47 @@
+$(function(){
+
+  $(".pet-item").on('mouseenter', function(e){
+
+        var element = $(this);
+        var id = element.data("id")
+        //debugger
+        $.get('/pets/' +id+ '.json', function(data){
+          var pet = data;
+          var name = pet["name"]
+          var bio = pet["bio"]
+          var adoptable = pet["adoptable"]
+          var price = pet["price"]
+          var owner = pet["user"]["first_name"] + " " + pet["user"]["last_name"];
+          
+          
+          var title = "<h1>" + name + "</h1>"
+          var html = "<p>Owner: " +owner + "</p>"
+              html += "<a href=\"/pets/id\">More Info</a>"
+
+          var hoverCard = $('#hover-card').html(html)
+
+
+         $(element).popover({trigger: "hover", title: title, html: true, content: hoverCard.html(), animation: true})
+
+
+      }) // end ajax
+
+
+    }) // end mouseover
+
+ 
+}) //document ready
+
+
+
+
+
+
+
+
+
+
+
 // $(function(){
 
 //    var page = document.getElementById('layout-container')
@@ -32,36 +76,3 @@
   
 
 
-$(function(){
-
-  $('.pet-item').on('mouseover', function(){
-
-        var element = $(this)
-        var id = element.data("id")
-        //debugger
-        $.get('/pets/' +id+ '.json', function(data){
-          var pet = data;
-          var name = pet["name"]
-          var bio = pet["bio"]
-          var adoptable = pet["adoptable"]
-          var price = pet["price"]
-          var owner = pet["user"]["first_name"] + " " + pet["user"]["last_name"];
-          
-          
-          var html = "<h1>" + name + "</h1>"
-              html += "<p>Owner: " +owner + "</p>"
-              html += "<a href=\"/pets/id\">More Info</a>"
-
-          hoverCard = $('#hover-card').html(html).html();
-
-
-          $(element).popover({trigger: "hover", title: "Title", html: true, content: hoverCard})
-
-
-      }) // end ajax
-
-
-    }) // end mouseover
-
- 
-}) //document ready

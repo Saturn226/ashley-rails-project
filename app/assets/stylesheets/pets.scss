@@ -4,17 +4,35 @@
 
 
 
-.pet-list a{
-  display: inline-block;
-  padding: 16px;
+.pet-list{
+  
+   a{
+      display: inline-block;
+      padding: 16px;
+      padding-bottom: 16px;
+    }
+
 }
 
 .popover{
     max-width: 100%; /* Max Width of the popover (depending on the container!) */
     width: 100%;
+    border: 12px dotted red;
 }
 
-#hover-card a{
-    text-align: right;
+
+/* Popover Body */
+.popover-content {
+    padding: 25px;
+
+
+    a{
+      text-align: right;
+    }
+
+}
+
+#hoverCard a{
+  text-align: right;
 }
 
