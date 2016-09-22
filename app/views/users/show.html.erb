@@ -8,7 +8,7 @@
 
     <div class= "list-group list-unstyled list-inline pet-list">
     <% @user.pets.each do |pet| %>
-        <!-- Owned Pets Links-->
+        <!-- Owned Pets -->
         <%=link_to user_pet_path(@user, pet), class:"list-group-item pet-item", data:{:id => pet.id} do %>
           <%=pet.name%><br> 
           <%= image_tag pet.pet_image.url(:thumb) %>
@@ -26,15 +26,11 @@
         <div class = "list-group list-unstyled list-inline pet-list">  
           <% @user.adoptable_pets.each do |pet| %>
           
-            <!-- Pet List Adoptable Links-->
-            <div class ="wrapper">
-            <%= link_to  user_pet_path(@user,pet), class: "list-group-item pet-item" do %>
-               
+            <!-- Pet List Adoptable-->
+            <%= link_to  user_pet_path(@user,pet), class: "list-group-item pet-item", data: {:id => pet.id} do %>
                 <%=pet.name%><br>
                 <%= image_tag pet.pet_image.url(:thumb)%>
-                </div>
             <%end%>
-            </div>
             
         <%end%>
         </div>

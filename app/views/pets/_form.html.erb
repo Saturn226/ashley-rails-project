@@ -64,24 +64,24 @@
           $("#price").hide();
     }); 
 
-    $('form').submit(function(event) {
-      //prevent form from submitting the default way
-      event.preventDefault();
-      debugger
-      var values = $(this).serialize();
+    // $('form').submit(function(event) {
+    //   //prevent form from submitting the default way
+    //   event.preventDefault();
+    //   debugger
+    //   var values = $(this).serialize();
 
-      $.post('/pets', values).done(function(data) {
-        // TODO: handle response=
-        var pet = data;
-        console.log(pet)
-        $("#petName").text(pet["name"]);
-        $("#userName").text("Pet Owner:" + pet["user"]["first_name"] + " " + pet["user"]["last_name"])
-        $("#petBio").text(pet["bio"]);
+    //   $.post('/pets', values).done(function(data) {
+    //     // TODO: handle response=
+    //     var pet = data;
+    //     console.log(pet)
+    //     $("#petName").text(pet["name"]);
+    //     $("#userName").text("Pet Owner:" + pet["user"]["first_name"] + " " + pet["user"]["last_name"])
+    //     $("#petBio").text(pet["bio"]);
         
-        $(".pet-form").hide();
+    //     $(".pet-form").hide();
     
-      });
-    });
+    //   });
+    // });
 
    })
  </script>

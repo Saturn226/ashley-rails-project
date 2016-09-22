@@ -5,13 +5,25 @@
 
 
 .pet-list{
-  
+    .pet-item{
+      padding: 16px;
+      border-style: dotted;
+      border-width: 5px;
+      box-shadow: 10px 10px 5px #888888;
+    } 
+
    a{
       display: inline-block;
-      padding: 16px;
-      padding-bottom: 16px;
+      margin: 10px;
     }
 
+}
+
+
+@media screen and (max-width: 500px) {
+   .popover{
+     visibility: hidden;
+   }
 }
 
 .popover{
@@ -30,9 +42,5 @@
       text-align: right;
     }
 
-}
-
-#hoverCard a{
-  text-align: right;
 }
 
