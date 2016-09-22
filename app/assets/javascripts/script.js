@@ -4,28 +4,20 @@ $(function(){
   $(".pet-item").on('mouseenter', function(e){
         var element = $(this);
         var id = element.data("id")
-        //debugger
+
         $.get('/pets/' +id+ '.json', function(data){
-          var pet = data;
-          var name = pet["name"]
-          var bio = pet["bio"]
-          var bioText = "<p class=\"bioText\" style=\"display:none\"><strong>Bio:</strong> "+bio+"</p>"
-          var adoptable = pet["adoptable"]
-          var price = pet["price"]
-          var owner = pet["user"]["first_name"] + " " + pet["user"]["last_name"];
-          
-          
-          var title = "<h1>" + name + "</h1>"
-          var  html = "<p><strong>Owner:</strong> " +owner + "</p>"
-            
+          var pet = new Pet(data);
+      
+        // creating the hovercard html
+          var bioText = "<p class=\"bioText\" style=\"display:none\"><strong>Bio:</strong> "+pet.bio+"</p>"
+          var title = "<h1>" + pet.name + "</h1>"
+          var html = "<p><b>Owner:</b> " +pet.owner(); + "</p>" 
               html += bioText
               html += "<a href= \"#\" class=\"info-button\">More Info</a>"
-              
-
           hoverCard = $('#hover-card').html(html)
 
-
-        $(element).popover({trigger: "manual", title: title, html: true, content: hoverCard.html(), animation: true})
+      //popover stays open on hover
+        $(element).popover({trigger: "manual", title: title, html: true, content: hoverCard.html(), animation: true, placement: "auto"})
           
           .on("mouseenter", function () {
                   var _this = this;
@@ -45,7 +37,7 @@ $(function(){
               });
          $(element).popover("show")
 
-
+        //show hide the bio text on hover
           $('body').on('click','.info-button',function (e) {
             e.preventDefault();
             $('.bioText').show();
@@ -59,6 +51,20 @@ $(function(){
 
     }) // end mouseover
 
+  function Pet(json){
+  this.name = json.name
+  this.price = json.price
+  this.bio = json.bio;
+  this.adoptable = json.adoptable;
+  this.owner_first_name = json.user.first_name;
+  debugger;
+  this.owner_last_name = json.user.last_name;
+
+  this.owner = function(){
+    return json.user.first_name + " " + json.user.last_name;
+  }
+  
+}
 
 
 
@@ -76,37 +82,6 @@ $(function(){
 
 
 
-// $(function(){
 
-//    var page = document.getElementById('layout-container')
-   
-//   $('#adoptButton').on('click', function(e){
-//     //show adopt a pet page without refresh
-//     e.preventDefault();
-//     e.stopPropagation()
-//     $.get("/pets", function(data){
-     
-//      //page.innerHTML = '<div class="container"> <h1>List of Available Pets</h1></div>';
-//      page.innerHTML = data;
-     
-//     }, 'html')
-//   });
-
-
-//   $('#homeButton').on('click', function(e){
-//     //show adopt a pet page without refresh
-//     e.preventDefault();
-//     e.stopPropagation()
-//     $.get("/", function(data){
-//    // var page = document.getElementById('layout-container')
-//      //page.innerHTML = '<div class="container"> <h1>List of Available Pets</h1></div>';
-//      page.innerHTML = data;
-     
-//     }, 'html')
-//   });
-
-// });
-
-  
 
 
