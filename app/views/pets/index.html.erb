@@ -17,10 +17,17 @@
 <script>
 //what i would like to do is show only 2 more pets at a time whenever
 //a show pets button is pressed. How could I do this?
-  $(function(){
-    $("a.load_pets").on("click", function(e){
+ $(function() {
+  $(document.body).off('click', 'nav.pagination a');
+  $(document.body).on('click', 'nav.pagination a', function(e) {
+    e.preventDefault();
+    //var loadingHTML = "<div class='loading'>Loading...</div>";
+    var petsIndex = $("#pets-index").html();
+    $("#pets-index").html(petsIndex).load($(this).attr("href"));
 
-    })
-  })
+    return false;
+  });
+});
+  
 </script>
 </div>

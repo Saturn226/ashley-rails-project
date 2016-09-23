@@ -57,7 +57,6 @@ $(function(){
   this.bio = json.bio;
   this.adoptable = json.adoptable;
   this.owner_first_name = json.user.first_name;
-  debugger;
   this.owner_last_name = json.user.last_name;
 
   this.owner = function(){
