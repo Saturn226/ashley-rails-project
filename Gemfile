@@ -1,5 +1,7 @@
 source 'https://rubygems.org'
 
+
+gem 'kaminari'
 gem 'faker'
 gem 'active_model_serializers'
 gem 'paperclip'

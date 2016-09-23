@@ -66,10 +66,6 @@ $(function(){
   
 }
 
-
-
-
-
 }) //document ready
 
 

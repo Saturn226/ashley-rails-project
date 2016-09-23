@@ -1,6 +1,8 @@
 <div id="pets-index">
   <div class="container">
     <h1> List of Available Pets </h1>
+    <%= page_entries_info @pets %> <br>
+    <%= paginate @pets %>
 
     <div class="list-group list-unstyled list-inline pet-list">
       <% @pets.all.each do |pet| %>
