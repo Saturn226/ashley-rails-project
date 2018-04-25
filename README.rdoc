@@ -17,3 +17,5 @@ Once a pet is created it can be viewed under your profile.
 You can edit a pet at anytime. 
 
 Once you place a pet for adoption, other users are able to adopt your pet. 
+
+A preview of this project can ve viewed here: https://www.youtube.com/watch?v=zlnkJ7ioQ9o
